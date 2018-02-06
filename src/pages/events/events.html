@@ -1,0 +1,36 @@
+<!--
+  Generated template for the EventsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Events</ion-title>
+    <ion-buttons start>
+      <button *ngIf="!nodata && !err" ion-button icon-only (click)="reloadEvents()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div center>
+    <ion-spinner *ngIf="nodata && !err" color="secondary" name="crescent"></ion-spinner>
+    <img margin-top *ngIf="nodata && err" src="assets/imgs/no-wifi.png" tappable (click) = "fetchEvents()"/>
+  </div>
+  <ion-list *ngIf="!nodata && !err">
+    <button ion-item *ngFor="let item of events" (click) = "goToEventDetails(item)">
+      <ion-thumbnail item-start>
+        <img src="http://datamanager.excellentexchangers.com/storage/app/public/{{ item.thumbnail }}">
+      </ion-thumbnail>
+      <h2>{{ item.title }}</h2>
+      <!-- <p>Hayao Miyazaki • 1988</p>       -->
+    </button>
+  </ion-list>
+
+</ion-content>

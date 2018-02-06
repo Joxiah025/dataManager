@@ -1,0 +1,26 @@
+page-activity {
+    .scroll-content {
+        background: #009688;
+        .EnterForm{
+            margin-top: 50px;
+            div{
+                ion-slides{
+                    height: 200px !important;
+                    .swiper-pagination-bullet{
+                        color: #fff;
+                        background: #FFF !important;
+                    }
+                }
+                text-align: center !important;
+                img{
+                    margin: 30px auto;
+                    width: 120px;
+                }
+            }
+            .formPlace{
+                background: #FFF;
+                padding: 10px;
+            }
+        }
+    }
+}

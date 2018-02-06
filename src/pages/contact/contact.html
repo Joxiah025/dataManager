@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Contact List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar *ngIf="act" (ionInput)="searchContact($event)" placeholder="Search Contact"></ion-searchbar>
+    
+  <ion-list>
+      <div *ngIf="act" margin-top>
+          <ion-item-sliding *ngFor="let item of activity" >
+            <ion-item (click) = "gotoContactDetails(item)" tappable>
+                <ion-avatar item-start>
+                    
+                    <img *ngIf="item.sex == 'Male' && item.pic == ''" src="assets/imgs/man.png"/>
+                    <img *ngIf="item.sex == 'Female' && item.pic == ''" src="assets/imgs/woman.png"/>
+                    <img *ngIf="item.pic != ''" src="{{ item.pic }}"/>
+                </ion-avatar>
+                <h2>{{ item.fname }}</h2>
+                <h3>{{ item.email }}</h3>
+                <ion-note clear item-end>{{item.type }}</ion-note>
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button color="danger" (click) = "deleteContact(item)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+              <button *ngIf="!item.uploaded" ion-button color="secondary" (click) = "uploadContact(item)">
+                <ion-icon name="cloud-upload"></ion-icon>
+                Upload
+              </button>
+              <button *ngIf="item.uploaded" ion-button color="dark" [disabled]="true">
+                <ion-icon name="done-all"></ion-icon>
+                Uploaded
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+      </div>
+      <div *ngIf="!act" text-center >
+          <!-- <img src="assets/imgs/database.png" style="margin-top: 100px" width="70"/> -->
+          <p style="margin-top:150px">Start an activity and watch <br/>this place fill up!</p>
+      </div>
+  </ion-list>
+</ion-content>

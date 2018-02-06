@@ -1,0 +1,33 @@
+page-invitee{
+    .camera{
+        height: 170px;
+        width: 100%;
+        background: #e0e0e0;
+        ion-fab{
+            margin-top: 140px;
+        }
+        img{
+            border-radius: 50%;
+            margin-top: 50px;
+            background:#f4f4f4;
+            border: 4px solid #fff;
+        }
+    }
+
+    ion-select{
+        max-width: 100% !important;
+        overflow: none;
+    }
+
+    ion-col{
+        padding: 0px !important;
+    }
+    ion-item{
+        border: unset !important;
+        margin-top: 20px !important;
+        .item-inner{
+            margin-left: 10px !important;
+        }
+        
+    }
+}

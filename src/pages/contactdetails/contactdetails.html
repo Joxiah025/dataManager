@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ContactdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title *ngIf="active">{{ fname }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <div class="profileHeader">
+    <img *ngIf = "sex == 'Male' && pic == ''" src="assets/imgs/man.png" />
+    <img *ngIf = "sex == 'Female' && pic == ''" src="assets/imgs/woman.png" />
+    <img *ngIf = "pic != ''" src="{{ pic }}" />
+
+    <ion-fab left mini edge>
+        <button ion-fab color="profile" (click)="CallMember(phone)"><ion-icon name="call"></ion-icon></button>
+    </ion-fab> 
+    <ion-fab right mini edge>
+      <button ion-fab color="primary" (click)="SMSMember(phone)"><ion-icon name="chatboxes"></ion-icon></button>
+    </ion-fab> 
+  </div>
+  <ion-list style="margin-top: 60px" padding>
+    <ion-item text-center ><br/>
+        <h1 style="font-weight: bold">{{fname}}</h1>
+        <p style="font-weight: bold">{{ type }} since {{ added_time }}</p>     
+    </ion-item> 
+    <ion-item><br/>
+        <h3><ion-icon name="mail"></ion-icon> Email Address</h3><br/>
+      <p style="font-weight: bold">{{ email }}</p><br/>
+    </ion-item>
+    <ion-item ><br/>
+      <h3><ion-icon name="pin"></ion-icon> Address </h3>
+      <br/>
+      <p style="font-weight: bold">{{address}}</p><br/>
+    </ion-item>
+    <ion-item ><br/>
+        <h3><ion-icon name="bus"></ion-icon> Nearest Bus Stop </h3>
+        <br/>
+        <p style="font-weight: bold">{{ bus }}</p><br/>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>

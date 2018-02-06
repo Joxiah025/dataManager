@@ -1,0 +1,54 @@
+<!-- <ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>SA Data Wire</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content> 
+  <ion-grid class="first">
+    <ion-row margin-bottom margin-top>
+        <ion-col col-6 text-center >
+            <div>
+                <img  (click)="gotoEvents()" tappable src="assets/imgs/calendar.png"/><br/>
+                <h4  (click)="gotoEvents()" tappable>Events</h4>
+            </div>
+        </ion-col>
+        <ion-col col-6 text-center >
+            <div>
+                <img (click)="gotoFirstTimers()" tappable src="assets/imgs/customer-question.png"/>
+                <h4 (click)="gotoFirstTimers()" tappable >First Timers</h4>
+            </div>
+        </ion-col>
+    </ion-row>   
+  </ion-grid> 
+    
+    <ion-list>
+            <ion-fab right mini edge>
+                <button ion-fab color="light" (click)="gotoContacts()"><ion-icon name="contacts"></ion-icon></button>
+            </ion-fab>        
+        <ion-item-divider color="light">
+            Recent Activities                            
+        </ion-item-divider>
+        <div *ngIf="act" margin-top>
+            <ion-item *ngFor="let item of activity" (click) = "gotoContactDetails(item)" tappable>
+                <ion-avatar item-start>
+                    
+                    <img *ngIf="item.sex == 'Male' && item.pic == ''" src="assets/imgs/man.png"/>
+                    <img *ngIf="item.sex == 'Female' && item.pic == ''" src="assets/imgs/woman.png"/>
+                    <img *ngIf="item.pic != ''" src="{{ item.pic }}"/>
+                </ion-avatar>
+                <h2>{{ item.fname }}</h2>
+                <h3>{{ item.email }}</h3>
+                <ion-note clear item-end>{{item.type }}</ion-note>
+            </ion-item>
+            <ion-item hidden></ion-item>
+        </div>
+        <div *ngIf="!act" text-center >
+            <!-- <img src="assets/imgs/database.png" style="margin-top: 100px" width="70"/> -->
+            <p style="margin-top:150px">Start an activity and watch <br/>this place fill up!</p>
+        </div>
+        
+    </ion-list>
+    
+
+</ion-content>
